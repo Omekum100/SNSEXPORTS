@@ -62,15 +62,16 @@ a {
 
 .menu-toggle {
   display: none;
-  width: 44px;
-  height: 44px;
+  width: 46px;
+  height: 46px;
   align-items: center;
   justify-content: center;
   gap: 5px;
   flex-direction: column;
-  border: 1px solid var(--line);
+  border: 1px solid rgba(201, 148, 45, 0.72);
   border-radius: 6px;
-  background: var(--white);
+  background: var(--teal-dark);
+  box-shadow: 0 8px 20px rgba(2, 24, 61, 0.16);
   cursor: pointer;
 }
 
@@ -78,7 +79,7 @@ a {
   width: 20px;
   height: 2px;
   border-radius: 999px;
-  background: var(--teal);
+  background: var(--amber);
   transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
@@ -772,7 +773,7 @@ a {
 .plane {
   top: 18%;
   left: -12%;
-  font-size: 44px;
+  font-size: 34px;
   -webkit-text-stroke: 1px rgba(255, 255, 255, 0.82);
   animation: flyAcross 18s linear infinite;
 }
@@ -780,20 +781,20 @@ a {
 .ship {
   bottom: 18%;
   left: -18%;
-  width: 118px;
-  height: 58px;
+  width: 92px;
+  height: 46px;
   animation: sailAcross 24s linear infinite;
 }
 
 .ship::before {
   content: "";
   position: absolute;
-  left: 10px;
-  right: 6px;
-  bottom: 7px;
-  height: 23px;
+  left: 8px;
+  right: 5px;
+  bottom: 6px;
+  height: 18px;
   background: var(--teal-dark);
-  border: 3px solid var(--amber);
+  border: 2px solid var(--amber);
   border-top: 0;
   border-radius: 0 0 42px 42px;
 }
@@ -801,22 +802,22 @@ a {
 .ship::after {
   content: "";
   position: absolute;
-  left: 28px;
-  bottom: 30px;
-  width: 58px;
-  height: 20px;
+  left: 22px;
+  bottom: 24px;
+  width: 46px;
+  height: 16px;
   background:
     linear-gradient(90deg, var(--amber) 0 22%, var(--white) 22% 27%, var(--amber) 27% 49%, var(--white) 49% 54%, var(--amber) 54% 76%, var(--white) 76% 81%, var(--amber) 81%);
-  border: 2px solid var(--teal-dark);
+  border: 1px solid var(--teal-dark);
   border-radius: 4px 4px 0 0;
 }
 
 .ship i {
   position: absolute;
-  right: 10px;
-  bottom: 34px;
-  width: 18px;
-  height: 22px;
+  right: 8px;
+  bottom: 27px;
+  width: 14px;
+  height: 18px;
   background: var(--white);
   border: 2px solid var(--amber);
   border-radius: 3px 3px 0 0;
@@ -825,31 +826,31 @@ a {
 .truck {
   bottom: 8%;
   left: -14%;
-  width: 92px;
-  height: 42px;
+  width: 74px;
+  height: 34px;
   animation: driveAcross 14s linear infinite;
 }
 
 .truck::before {
   content: "";
   position: absolute;
-  left: 4px;
-  bottom: 10px;
-  width: 54px;
-  height: 26px;
+  left: 3px;
+  bottom: 8px;
+  width: 43px;
+  height: 21px;
   background: var(--teal-dark);
-  border: 3px solid var(--amber);
+  border: 2px solid var(--amber);
   border-radius: 5px;
 }
 
 .truck i {
   position: absolute;
-  right: 4px;
-  bottom: 10px;
-  width: 31px;
-  height: 23px;
+  right: 3px;
+  bottom: 8px;
+  width: 25px;
+  height: 19px;
   background: var(--white);
-  border: 3px solid var(--amber);
+  border: 2px solid var(--amber);
   border-left: 0;
   border-radius: 0 7px 5px 0;
 }
@@ -860,55 +861,55 @@ a {
   content: "";
   position: absolute;
   bottom: -8px;
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   background: var(--amber);
   box-shadow: 0 0 0 2px var(--white);
 }
 
 .truck::after {
-  left: 16px;
-  box-shadow: 46px 0 0 var(--amber), 46px 0 0 2px var(--white), 0 0 0 2px var(--white);
+  left: 13px;
+  box-shadow: 37px 0 0 var(--amber), 37px 0 0 2px var(--white), 0 0 0 2px var(--white);
 }
 
 .train {
   bottom: 14%;
   left: -28%;
-  min-width: 220px;
-  height: 56px;
-  gap: 7px;
+  min-width: 170px;
+  height: 44px;
+  gap: 5px;
   align-items: flex-end;
   animation: trainAcross 22s linear infinite;
 }
 
 .train i {
   position: relative;
-  width: 44px;
-  height: 30px;
+  width: 34px;
+  height: 24px;
   background: var(--teal-dark);
-  border: 3px solid var(--amber);
+  border: 2px solid var(--amber);
   border-radius: 5px 5px 3px 3px;
 }
 
 .train i::before {
   content: "";
   position: absolute;
-  left: 8px;
-  right: 8px;
-  top: 7px;
-  height: 7px;
+  left: 7px;
+  right: 7px;
+  top: 6px;
+  height: 6px;
   background: var(--white);
   border-radius: 2px;
 }
 
 .train::before {
-  left: 26px;
+  left: 21px;
 }
 
 .train::after {
-  right: 26px;
-  box-shadow: -52px 0 0 var(--amber), -52px 0 0 2px var(--white), -104px 0 0 var(--amber), -104px 0 0 2px var(--white), 0 0 0 2px var(--white);
+  right: 21px;
+  box-shadow: -40px 0 0 var(--amber), -40px 0 0 2px var(--white), -80px 0 0 var(--amber), -80px 0 0 2px var(--white), 0 0 0 2px var(--white);
 }
 
 .motion-lane-page .ship,
@@ -1115,8 +1116,12 @@ a {
 
   .menu-open .navlinks {
     max-height: 420px;
-    padding: 8px 0 0;
+    padding: 10px;
     border-top: 1px solid var(--line);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--white);
+    box-shadow: 0 18px 35px rgba(2, 24, 61, 0.12);
   }
 
   .navlinks a {
@@ -1260,7 +1265,7 @@ a {
   }
 
   .motion-lane-hero {
-    opacity: 0.78;
+    opacity: 0.62;
   }
 
   .motion-lane-hero .ship,
@@ -1269,13 +1274,14 @@ a {
   }
 
   .motion-lane-hero .plane {
-    top: 10%;
-    font-size: 32px;
+    top: 9%;
+    font-size: 24px;
   }
 
   .motion-lane-hero .truck {
-    bottom: 36px;
-    transform: scale(0.86);
+    bottom: 28px;
+    transform: scale(0.68);
+    transform-origin: left center;
   }
 }
 
