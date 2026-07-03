@@ -23,6 +23,11 @@ html {
 
 body {
   margin: 0;
+  overflow-x: hidden;
+}
+
+main {
+  overflow-x: hidden;
 }
 
 a {
@@ -1085,11 +1090,19 @@ a {
     gap: 12px;
     min-height: auto;
     padding: 12px 16px;
+    align-items: center;
   }
 
   .brand {
     max-width: none;
     font-size: 15px;
+    min-width: 0;
+  }
+
+  .brand span:last-child {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   .brand-mark {
@@ -1173,17 +1186,23 @@ a {
     border-bottom: 0;
   }
 
+  .info-card:nth-child(n) {
+    border-right: 0;
+  }
+
   .cta-band {
     align-items: flex-start;
     flex-direction: column;
   }
 
   .hero {
-    min-height: 700px;
+    min-height: 0;
+    display: block;
+    padding: 0;
   }
 
   .hero-content {
-    padding: 70px 18px 190px;
+    padding: 64px 18px 28px;
   }
 
   .hero h1 {
@@ -1197,6 +1216,7 @@ a {
   }
 
   .hero-actions {
+    display: grid;
     gap: 10px;
   }
 
@@ -1233,6 +1253,7 @@ a {
   .info-card {
     min-height: auto;
     padding: 22px;
+    border-right: 0;
   }
 
   .info-card h3 {
@@ -1247,6 +1268,7 @@ a {
 
   .timeline {
     gap: 0;
+    border-radius: 8px;
   }
 
   .timeline-item {
@@ -1260,45 +1282,36 @@ a {
 
   .motion-lane-page,
   .motion-lane-section,
-  .motion-lane-process {
-    display: none;
-  }
-
+  .motion-lane-process,
   .motion-lane-hero {
-    opacity: 0.62;
-  }
-
-  .motion-lane-hero .ship,
-  .motion-lane-hero .train {
     display: none;
-  }
-
-  .motion-lane-hero .plane {
-    top: 9%;
-    font-size: 24px;
-  }
-
-  .motion-lane-hero .truck {
-    bottom: 28px;
-    transform: scale(0.68);
-    transform-origin: left center;
   }
 }
 
 @media (max-width: 680px) {
+  .topbar {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: start;
+    gap: 6px;
+  }
+
   .hero {
-    min-height: 720px;
+    min-height: 0;
   }
 
   .hero-content {
-    padding: 56px 16px 230px;
+    padding: 50px 16px 24px;
   }
 
   .hero-stats {
-    left: 16px;
-    right: 16px;
-    bottom: 16px;
+    position: relative;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    margin: 0 16px 16px;
     grid-template-columns: 1fr;
+    border-radius: 8px;
   }
 
   .hero-stats div {
@@ -1341,6 +1354,13 @@ a {
     width: 100%;
   }
 
+  .contact-form input,
+  .contact-form select,
+  .contact-form textarea {
+    min-height: 48px;
+    font-size: 16px;
+  }
+
   .company-emblem {
     min-height: 140px;
   }
@@ -1362,9 +1382,65 @@ a {
 
   .footer {
     flex-direction: column;
+    padding: 30px 16px;
   }
 
   .footer div:last-child {
     text-align: left;
+  }
+}
+
+@media (max-width: 420px) {
+  .navbar {
+    padding-inline: 12px;
+  }
+
+  .brand {
+    font-size: 14px;
+  }
+
+  .brand-mark {
+    width: 34px;
+    height: 34px;
+  }
+
+  .menu-toggle {
+    width: 42px;
+    height: 42px;
+  }
+
+  .hero-content,
+  .section,
+  .page-hero {
+    padding-inline: 14px;
+  }
+
+  .hero h1 {
+    font-size: clamp(34px, 10.8vw, 44px);
+  }
+
+  .hero-stats {
+    margin-inline: 14px;
+  }
+
+  .section-heading h2,
+  .split h2,
+  .company h2,
+  .contact h2,
+  .cta-band h2 {
+    font-size: clamp(25px, 8vw, 34px);
+  }
+
+  .info-card,
+  .info-block,
+  .company-panel div {
+    padding: 16px;
+  }
+
+  .footer p,
+  .footer span,
+  .footer a,
+  .company-panel dd {
+    overflow-wrap: anywhere;
   }
 }
