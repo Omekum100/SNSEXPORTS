@@ -104,7 +104,7 @@ function navigate(path) {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-function Link({ to, children, className }) {
+function Link({ to, children, className, onNavigate }) {
   return (
     <a
       className={className}
@@ -112,6 +112,7 @@ function Link({ to, children, className }) {
       onClick={(event) => {
         event.preventDefault();
         navigate(to);
+        onNavigate?.();
       }}
     >
       {children}
@@ -140,26 +141,40 @@ function App() {
 }
 
 function Header({ activePath }) {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const closeMenu = () => setMenuOpen(false);
+
   return (
     <>
       <header className="topbar">
         <a href={`tel:${company.phone}`} className="topbar-link">{company.phone}</a>
-        <span>{company.hours}</span>
         <a href={`mailto:${company.email}`} className="topbar-link">{company.email}</a>
       </header>
-      <nav className="navbar" aria-label="Main navigation">
-        <Link className="brand" to="/">
+      <nav className={menuOpen ? 'navbar menu-open' : 'navbar'} aria-label="Main navigation">
+        <Link className="brand" to="/" onNavigate={closeMenu}>
           <span className="brand-mark">S&S</span>
           <span>{company.shortName}</span>
         </Link>
-        <div className="navlinks">
+        <button
+          className="menu-toggle"
+          type="button"
+          aria-label="Toggle navigation menu"
+          aria-expanded={menuOpen}
+          onClick={() => setMenuOpen((open) => !open)}
+        >
+          <span />
+          <span />
+          <span />
+        </button>
+        <div className="navlinks" onClick={closeMenu}>
           {nav.map((item) => (
             <Link className={activePath === item.path ? 'active' : ''} to={item.path} key={item.path}>
               {item.label}
             </Link>
           ))}
         </div>
-        <Link className="quote-btn" to="/contact">Get a Quote</Link>
+        <Link className="quote-btn" to="/contact" onNavigate={closeMenu}>Get a Quote</Link>
       </nav>
     </>
   );
@@ -275,7 +290,7 @@ function SustainabilityPage() {
           <h2>Assured quality, transparent sourcing, and ethical partnerships</h2>
         </div>
         <p>
-          The company’s approach is built around clear communication, supplier visibility,
+          The company's approach is built around clear communication, supplier visibility,
           quality checks, and responsible route choices that support clients and communities.
         </p>
       </section>
@@ -408,7 +423,7 @@ function LogisticsMotion({ variant }) {
     <div className={`motion-lane motion-lane-${variant}`} aria-hidden="true">
       <div className="route-line route-line-one" />
       <div className="route-line route-line-two" />
-      <span className="motion-unit plane">✈</span>
+      <span className="motion-unit plane">{'\u2708'}</span>
       <span className="motion-unit ship"><i /></span>
       <span className="motion-unit truck"><i /></span>
       <span className="motion-unit train"><i /><i /><i /><i /></span>
